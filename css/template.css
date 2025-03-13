@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+/* Üst Navbar Stilleri */
+
+.top-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2a2a2a;
+    color: white;
+    padding: 0 15px;
+    height: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: #3a3a3a;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.nav-btn:hover {
+    background-color: #4a4a4a;
+}
+
+.pool-info {
+    padding: 6px 12px;
+    background-color: #4285f4;
+    border-radius: 4px;
+    font-weight: bold;
+    min-width: 200px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Ana İçerik Stilleri */
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+
+/* Sidebar Ortak Stilleri */
+
+.left-sidebar,
+.right-sidebar {
+    background-color: #f0f0f0;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.left-sidebar {
+    border-right: 1px solid #ddd;
+}
+
+.right-sidebar {
+    border-left: 1px solid #ddd;
+}
+
+.sidebar-section {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.section-title {
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    color: #333;
+    font-size: 14px;
+}
+
+
+/* Sol Sidebar Araç Stilleri */
+
+.tool-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+}
+
+.tool-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tool-btn:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+}
+
+.tool-btn.active {
+    background-color: #4285f4;
+    border-color: #2b6cb0;
+    color: white;
+}
+
+
+/* Kategori listesi */
+
+.category-list {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.category-item {
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid #eee;
+    transition: all 0.2s ease;
+}
+
+.category-item:hover {
+    background-color: #f5f5f5;
+}
+
+.category-item.active {
+    background-color: #e8f0fe;
+    border-color: #4285f4;
+    font-weight: bold;
+}
+
+
+/* SVG Galerisi */
+
+.svg-gallery {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.loading-objects {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #666;
+    padding: 20px 0;
+}
+
+.svg-gallery-item {
+    aspect-ratio: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.svg-gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: #4285f4;
+}
+
+.svg-gallery-item .svg-preview {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.svg-gallery-item .svg-preview img {
+    max-width: 100%;
+    max-height: 40px;
+    object-fit: contain;
+}
+
+.svg-gallery-item .svg-name {
+    font-size: 10px;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding: 3px 0;
+}
+
+.more-objects-info {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+
+/* Sahne Nesneleri Listesi */
+
+.svg-objects-list {
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.object-item {
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    background-color: white;
+    border: 1px solid #eee;
+}
+
+.object-item:hover {
+    background-color: #f5f5f5;
+}
+
+.object-item.selected {
+    background-color: #e8f0fe;
+    border-color: #4285f4;
+}
+
+
+/* Sağ Sidebar Özellik Stilleri */
+
+#no-selection-message {
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+}
+
+.property-group {
+    margin: 10px 15px;
+}
+
+.property-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #555;
+}
+
+.property-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+
+/* Canvas Alanı Stilleri */
+
+.canvas-area {
+    flex: 1;
+    background-color: white;
+    overflow: auto;
+    position: relative;
+    background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%), linear-gradient(-45deg, #f5f5f5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f5f5f5 75%), linear-gradient(-45deg, transparent 75%, #f5f5f5 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+
+/* Alt Araç Çubuğu Stilleri */
+
+.bottom-toolbar {
+    height: 50px;
+    background-color: #2a2a2a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.color-palette {
+    display: flex;
+    gap: 10px;
+}
+
+.color-swatch {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #444;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.2);
+}
+
+.color-swatch.active {
+    box-shadow: 0 0 0 2px white;
+}
+
+.zoom-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.zoom-control button {
+    background-color: #3a3a3a;
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoom-control button:hover {
+    background-color: #4a4a4a;
+}
+
+
+/* Seçim Alanı (Area Selection) */
+
+.selection-area {
+    position: absolute;
+    border: 1px dashed #4285f4;
+    background-color: rgba(66, 133, 244, 0.1);
+    pointer-events: none;
+    z-index: 999;
+}
+
+
+/* Kaydırma modu imleci */
+
+.canvas-area.panning {
+    cursor: grabbing !important;
+}
+
+
+/* Çoklu seçim modu */
+
+.canvas-area.multi-select-mode {
+    cursor: cell;
+}
+
+.selection-area {
+    position: absolute;
+    border: 2px dashed #4285f4;
+    background-color: rgba(66, 133, 244, 0.1);
+    pointer-events: none;
+    z-index: 999;
+}
+
+.area-selecting {
+    cursor: crosshair !important;
+}
+
+
+/* Context menu stillerini geliştir */
+
+.context-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 5px 0;
+    z-index: 9999;
+    min-width: 180px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.context-menu div {
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.context-menu div:hover {
+    background-color: #f5f5f5;
+}
+
+.context-menu div i {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+
+/* Gruplar arası ayırıcı */
+
+.context-menu .divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 5px 0;
+    padding: 0;
+}

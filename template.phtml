@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Düzenleyici</title>
+    <link rel="stylesheet" href="/app/views/editor/css/template.css">
+    <link rel="stylesheet" href="/app/views/editor/css/transform.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- SubjX kütüphanesi -->
+    <link rel="stylesheet" href="/assets/UI/subjx/dist/style/subjx.css">
+</head>
+
+<body>
+    <div class="editor-container">
+        <!-- Üst Navbar -->
+        <div class="top-navbar">
+            <div class="logo">SVG Editör</div>
+            <div class="nav-actions">
+                <button class="nav-btn" id="save-btn"><i class="fas fa-save"></i> Kaydet</button>
+                <button class="nav-btn" id="back-btn"><i class="fas fa-arrow-left"></i> Geri</button>
+            </div>
+            <div class="pool-info">
+                <span id="selected-pool-name">Havuz seçilmedi</span>
+            </div>
+        </div>
+
+        <!-- Ana Içerik -->
+        <div class="main-content">
+            <!-- Sol Sidebar (Araçlar) -->
+            <div class="left-sidebar">
+                <div class="sidebar-section">
+                    <div class="section-title">Çizim Araçları</div>
+                    <div class="tool-group">
+                        <button class="tool-btn" data-tool="select" title="Seçim"><i class="fas fa-mouse-pointer"></i></button>
+                        <button class="tool-btn" data-tool="rectangle" title="Dikdörtgen"><i class="fas fa-square"></i></button>
+                        <button class="tool-btn" data-tool="circle" title="Daire"><i class="fas fa-circle"></i></button>
+                        <button class="tool-btn" data-tool="ellipse" title="Elips"><i class="fas fa-egg"></i></button>
+                        <button class="tool-btn" data-tool="line" title="Çizgi"><i class="fas fa-slash"></i></button>
+                        <button class="tool-btn" data-tool="path" title="Serbest Çizim"><i class="fas fa-pen"></i></button>
+                        <button class="tool-btn" data-tool="polygon" title="Çokgen"><i class="fas fa-draw-polygon"></i></button>
+                        <button class="tool-btn" data-tool="text" title="Metin"><i class="fas fa-font"></i></button>
+                    </div>
+                </div>
+
+                <!-- Düzenleme Araçları Bölümü -->
+                <div class="sidebar-section">
+                    <div class="section-title">Düzenleme Araçları</div>
+                    <div class="tool-group">
+                        <!-- Mevcut araçlar -->
+                        <button class="tool-btn" data-tool="select" title="Seçim"><i class="fas fa-mouse-pointer"></i></button>
+                        <button class="tool-btn" data-tool="group" title="Grupla"><i class="fas fa-object-group"></i></button>
+                        <button class="tool-btn" data-tool="ungroup" title="Grubu Çöz"><i class="fas fa-object-ungroup"></i></button>
+
+                        <!-- Kopyala/Yapıştır/Sil -->
+                        <button class="tool-btn" data-tool="copy" title="Kopyala"><i class="fas fa-copy"></i></button>
+                        <button class="tool-btn" data-tool="paste" title="Yapıştır"><i class="fas fa-paste"></i></button>
+                        <button class="tool-btn" data-tool="delete" title="Sil"><i class="fas fa-trash"></i></button>
+
+                        <!-- Katman İşlemleri -->
+                        <button class="tool-btn" data-tool="bring-front" title="En Öne Getir"><i class="fas fa-level-up-alt"></i></button>
+                        <button class="tool-btn" data-tool="send-back" title="En Arkaya Gönder"><i class="fas fa-level-down-alt"></i></button>
+                        <button class="tool-btn" data-tool="bring-forward" title="Bir Adım Öne Getir"><i class="fas fa-arrow-up"></i></button>
+                        <button class="tool-btn" data-tool="send-backward" title="Bir Adım Arkaya Gönder"><i class="fas fa-arrow-down"></i></button>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">SVG Kategorileri</div>
+                    <div class="category-list" id="svg-categories">
+                        <!-- Kategoriler burada listelenecek -->
+                        <div class="category-item" data-category="all">
+                            <i class="fas fa-th-large"></i>
+                            <span>Tümü</span>
+                        </div>
+                        <!-- Diğer kategoriler JS ile eklenecek -->
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">SVG Nesneleri</div>
+                    <div class="svg-gallery" id="svg-gallery">
+                        <!-- SVG nesneleri galerisindeki önizlemeler burada gösterilecek -->
+                        <div class="loading-objects">Yükleniyor...</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">Sahne Nesneleri</div>
+                    <div class="svg-objects-list" id="svg-objects">
+                        <!-- Canvas'taki SVG nesneleri listesi burada gösterilecek -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Canvas Alanı -->
+            <div class="canvas-area">
+                <svg id="editor-canvas" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                 
+                </svg>
+            </div>
+
+            <!-- Sağ Sidebar (Özellikler) -->
+            <div class="right-sidebar">
+                <div class="sidebar-section">
+                    <div class="section-title">Nesne Özellikleri</div>
+                    <div id="no-selection-message">Özelliklerini görmek için bir nesne seçin</div>
+                    <div id="properties-panel" style="display: none;">
+                        <div class="property-group">
+                            <label>Konum X:</label>
+                            <input type="number" id="pos-x" value="0">
+                        </div>
+                        <div class="property-group">
+                            <label>Konum Y:</label>
+                            <input type="number" id="pos-y" value="0">
+                        </div>
+                        <div class="property-group">
+                            <label>Genişlik:</label>
+                            <input type="number" id="width" value="100">
+                        </div>
+                        <div class="property-group">
+                            <label>Yükseklik:</label>
+                            <input type="number" id="height" value="100">
+                        </div>
+                        <div class="property-group">
+                            <label>Dolgu Rengi:</label>
+                            <input type="color" id="fill-color" value="#4285f4">
+                        </div>
+                        <div class="property-group">
+                            <label>Çizgi Rengi:</label>
+                            <input type="color" id="stroke-color" value="#000000">
+                        </div>
+                        <div class="property-group">
+                            <label>Çizgi Kalınlığı:</label>
+                            <input type="number" id="stroke-width" value="1" min="0" max="10">
+                        </div>
+                        <div class="property-group">
+                            <label>Opaklık:</label>
+                            <input type="range" id="opacity" min="0" max="1" step="0.1" value="1">
+                        </div>
+                        <div class="property-group">
+                            <label>Döndürme Açısı:</label>
+                            <input type="number" id="rotation" value="0" min="0" max="360">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loading-indicator" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: rgba(255,255,255,0.8); padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+            <i class="fas fa-spinner fa-spin"></i> Yükleniyor...
+        </div>
+        <div id="selection-area" class="selection-area" style="display: none;"></div>
+
+        <!-- Alt Renk ve Araç Çubuğu -->
+        <div class="bottom-toolbar">
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: #4285f4;" title="Mavi"></div>
+                <div class="color-swatch" style="background-color: #ea4335;" title="Kırmızı"></div>
+                <div class="color-swatch" style="background-color: #fbbc05;" title="Sarı"></div>
+                <div class="color-swatch" style="background-color: #34a853;" title="Yeşil"></div>
+                <div class="color-swatch" style="background-color: #ffffff;" title="Beyaz"></div>
+                <div class="color-swatch" style="background-color: #000000;" title="Siyah"></div>
+            </div>
+            <div class="zoom-control">
+                <button id="zoom-out"><i class="fas fa-minus"></i></button>
+                <span id="zoom-level">100%</span>
+                <button id="zoom-in"><i class="fas fa-plus"></i></button>
+                <button id="zoom-reset" title="Görünümü Sıfırla"><i class="fas fa-compress-arrows-alt"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/assets/UI/subjx/dist/js/subjx.js"></script>
+
+    <script src="/app/views/editor/js/selection.js"></script>
+    <script src="/app/views/editor/js/canvas.js"></script>
+    <script src="/app/views/editor/js/template.js"></script>
+    <script src="/app/views/editor/js/transform.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Svg12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 83.7 20.6" style="enable-background:new 0 0 83.7 20.6;" xml:space="preserve">
+<style type="text/css">
+	.Svg12_st0{fill:url(#Svg12_Dikey_00000114040720589768885210000008033650037148421763_);}
+</style>
+<linearGradient id="Svg12_Dikey_00000181804801521307873500000007718825428990263719_" gradientUnits="userSpaceOnUse" x1="2091.646" y1="226.0219" x2="2091.646" y2="243.1564" gradientTransform="matrix(1 0 0 1 -2049.7764 -223.8728)">
+	<stop  offset="9.525904e-02" style="stop-color:#B7B7B7"/>
+	<stop  offset="0.4426" style="stop-color:#F2F2F2"/>
+	<stop  offset="0.888" style="stop-color:#858585"/>
+</linearGradient>
+<rect id="Svg12_Dikey" x="1.5" y="2" style="fill:url(#Svg12_Dikey_00000181804801521307873500000007718825428990263719_);" width="80.8" height="17.3"/>
+<rect id="movingRect" x="-20" y="2" width="20" height="17.5" fill="transparent">
+    <animate attributeName="x" from="-20" to="80" dur="2s" repeatCount="indefinite" />
+</rect>
+<rect id="movingRect" x="-20" y="2" width="20" height="17.5" fill="transparent">
+    <animate attributeName="x" from="-20" to="80" begin="1s" dur="2s" repeatCount="indefinite" />
+</rect>
+</svg>

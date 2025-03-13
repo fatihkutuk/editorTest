@@ -1,0 +1,140 @@
+/* Transform Kontrolleri Stilleri */
+
+.transform-controls {
+    position: absolute;
+    border: 1px dashed #4285f4;
+    pointer-events: all;
+    box-sizing: border-box;
+    z-index: 1000;
+    cursor: move;
+}
+
+
+/* Boyutlandırma Noktaları */
+
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border: 1px solid #4285f4;
+    border-radius: 50%;
+    pointer-events: all;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
+/* Köşe Noktaları */
+
+.resize-handle.nw {
+    top: -5px;
+    left: -5px;
+    cursor: nw-resize;
+}
+
+.resize-handle.ne {
+    top: -5px;
+    right: -5px;
+    cursor: ne-resize;
+}
+
+.resize-handle.se {
+    bottom: -5px;
+    right: -5px;
+    cursor: se-resize;
+}
+
+.resize-handle.sw {
+    bottom: -5px;
+    left: -5px;
+    cursor: sw-resize;
+}
+
+
+/* Kenar Noktaları */
+
+.resize-handle.n {
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: n-resize;
+}
+
+.resize-handle.e {
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    cursor: e-resize;
+}
+
+.resize-handle.s {
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: s-resize;
+}
+
+.resize-handle.w {
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+    cursor: w-resize;
+}
+
+
+/* Döndürme Noktası */
+
+.rotate-handle {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #4285f4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    pointer-events: all;
+    cursor: alias;
+    z-index: 1002;
+}
+
+
+/* SVG nesneleri için stil */
+
+.svg-object-wrapper {
+    cursor: pointer;
+}
+
+.selection-handle {
+    cursor: move;
+}
+
+
+/* Sağ tık menüsü stilleri */
+
+.context-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    z-index: 2000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    min-width: 150px;
+}
+
+.context-menu div {
+    padding: 8px 15px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.context-menu div:hover {
+    background-color: #f0f0f0;
+}

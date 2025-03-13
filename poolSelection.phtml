@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Havuz Seçimi</title>
+    <link rel="stylesheet" href="/app/views/editor/css/poolSelection.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="selection-container">
+        <div class="selection-header">
+            <h1>Havuz Seçimi</h1>
+            <p>Düzenlemek istediğiniz havuzu seçin</p>
+        </div>
+        
+        <div class="filter-section">
+            <div class="filter-group">
+                <label for="typename-filter">Havuz Tipine Göre Filtrele:</label>
+                <select id="typename-filter" class="select2">
+                    <option value="">Tüm Tipler</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="pool-list-container">
+            <div class="loading" id="loading-indicator">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Havuzlar yükleniyor...</span>
+            </div>
+            <div id="pool-list" class="pool-list">
+                <!-- Havuz listesi buraya gelecek -->
+            </div>
+        </div>
+        
+        <div class="selection-footer">
+            <button id="continue-btn" class="btn btn-primary" disabled>
+                <i class="fas fa-arrow-right"></i> 
+                Devam Et
+            </button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="/app/views/editor/js/poolSelection.js"></script>
+</body>
+</html>

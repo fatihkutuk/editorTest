@@ -1,0 +1,250 @@
+{
+    "categories": [{
+            "id": "sensor",
+            "name": "Sensörler",
+            "objects": [{
+                    "id": 1,
+                    "name": "Sıcaklık Sensörü",
+                    "file": "1.svg",
+                    "properties": {
+                        "width": 60,
+                        "height": 60,
+                        "fill": "#f5f5f5",
+                        "stroke": "#333333",
+                        "stroke-width": 2,
+                        "data-type": "temperature",
+                        "data-min": 0,
+                        "data-max": 100
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "Basınç Sensörü",
+                    "file": "5.svg",
+                    "properties": {
+                        "width": 60,
+                        "height": 60,
+                        "fill": "#e8f4ff",
+                        "stroke": "#0066cc",
+                        "stroke-width": 1.5,
+                        "data-type": "pressure",
+                        "data-min": 0,
+                        "data-max": 1000
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "Akış Sensörü",
+                    "file": "6.svg",
+                    "properties": {
+                        "width": 70,
+                        "height": 50,
+                        "fill": "#e6ffe6",
+                        "stroke": "#006600",
+                        "stroke-width": 1.5,
+                        "data-type": "flow",
+                        "data-min": 0,
+                        "data-max": 500
+                    }
+                }
+            ]
+        },
+        {
+            "id": "valve",
+            "name": "Vanalar",
+            "objects": [{
+                    "id": 10,
+                    "name": "Kontrol Vanası",
+                    "file": "10.svg",
+                    "properties": {
+                        "width": 80,
+                        "height": 40,
+                        "fill": "#ffe6e6",
+                        "stroke": "#cc0000",
+                        "stroke-width": 2,
+                        "data-type": "control-valve",
+                        "data-status": "closed"
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "Çek Valf",
+                    "file": "12.svg",
+                    "properties": {
+                        "width": 60,
+                        "height": 60,
+                        "fill": "#fff2cc",
+                        "stroke": "#e69900",
+                        "stroke-width": 1.5,
+                        "data-type": "check-valve",
+                        "data-direction": "forward"
+                    }
+                },
+                {
+                    "id": 15,
+                    "name": "Motorlu Vana",
+                    "file": "15.svg",
+                    "properties": {
+                        "width": 70,
+                        "height": 70,
+                        "fill": "#e6f2ff",
+                        "stroke": "#0066cc",
+                        "stroke-width": 2,
+                        "data-type": "motor-valve",
+                        "data-status": "open",
+                        "data-speed": 100
+                    }
+                }
+            ]
+        },
+        {
+            "id": "pump",
+            "name": "Pompalar",
+            "objects": [{
+                    "id": 20,
+                    "name": "Santrifüj Pompa",
+                    "file": "20.svg",
+                    "properties": {
+                        "width": 80,
+                        "height": 80,
+                        "fill": "#ccffcc",
+                        "stroke": "#006600",
+                        "stroke-width": 2,
+                        "data-type": "centrifugal-pump",
+                        "data-rpm": 1450,
+                        "data-power": 7.5
+                    }
+                },
+                {
+                    "id": 22,
+                    "name": "Dalgıç Pompa",
+                    "file": "22.svg",
+                    "properties": {
+                        "width": 50,
+                        "height": 100,
+                        "fill": "#e6ffff",
+                        "stroke": "#009999",
+                        "stroke-width": 1.5,
+                        "data-type": "submersible-pump",
+                        "data-depth": 20,
+                        "data-flow-rate": 150
+                    }
+                }
+            ]
+        },
+        {
+            "id": "tank",
+            "name": "Tanklar",
+            "objects": [{
+                    "id": 30,
+                    "name": "Su Tankı",
+                    "file": "30.svg",
+                    "properties": {
+                        "width": 100,
+                        "height": 120,
+                        "fill": "#b3e6ff",
+                        "stroke": "#0077b3",
+                        "stroke-width": 2,
+                        "data-type": "water-tank",
+                        "data-capacity": 5000,
+                        "data-level": 60
+                    }
+                },
+                {
+                    "id": 32,
+                    "name": "Kimyasal Tank",
+                    "file": "32.svg",
+                    "properties": {
+                        "width": 90,
+                        "height": 110,
+                        "fill": "#ffccff",
+                        "stroke": "#cc00cc",
+                        "stroke-width": 2,
+                        "data-type": "chemical-tank",
+                        "data-capacity": 2000,
+                        "data-material": "HDPE"
+                    }
+                },
+                {
+                    "id": 35,
+                    "name": "Basınçlı Tank",
+                    "file": "35.svg",
+                    "properties": {
+                        "width": 80,
+                        "height": 100,
+                        "fill": "#f2f2f2",
+                        "stroke": "#4d4d4d",
+                        "stroke-width": 2.5,
+                        "data-type": "pressure-tank",
+                        "data-capacity": 300,
+                        "data-max-pressure": 10
+                    }
+                }
+            ]
+        },
+        {
+            "id": "pipe",
+            "name": "Borular ve Bağlantılar",
+            "objects": [{
+                    "id": 36,
+                    "name": "Boru Hattı",
+                    "file": "36.svg",
+                    "properties": {
+                        "width": 150,
+                        "height": 20,
+                        "fill": "none",
+                        "stroke": "#666666",
+                        "stroke-width": 3,
+                        "data-type": "pipe",
+                        "data-diameter": 100,
+                        "data-material": "PVC"
+                    }
+                },
+                {
+                    "id": 37,
+                    "name": "T Bağlantı",
+                    "file": "37.svg",
+                    "properties": {
+                        "width": 80,
+                        "height": 80,
+                        "fill": "none",
+                        "stroke": "#666666",
+                        "stroke-width": 3,
+                        "data-type": "t-junction",
+                        "data-diameter": 100
+                    }
+                },
+                {
+                    "id": 38,
+                    "name": "Dirsek",
+                    "file": "38.svg",
+                    "properties": {
+                        "width": 60,
+                        "height": 60,
+                        "fill": "none",
+                        "stroke": "#666666",
+                        "stroke-width": 3,
+                        "data-type": "elbow",
+                        "data-angle": 90,
+                        "data-diameter": 100
+                    }
+                },
+                {
+                    "id": 39,
+                    "name": "Flanş",
+                    "file": "39.svg",
+                    "properties": {
+                        "width": 50,
+                        "height": 30,
+                        "fill": "#e6e6e6",
+                        "stroke": "#4d4d4d",
+                        "stroke-width": 2,
+                        "data-type": "flange",
+                        "data-diameter": 100,
+                        "data-pressure-rating": "PN16"
+                    }
+                }
+            ]
+        }
+    ]
+}
